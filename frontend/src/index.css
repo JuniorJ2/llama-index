@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme {
+  --color-corporate-dark: #0f172a; /* slate-900 */
+  --color-corporate-light: #f8fafc; /* slate-50 */
+  --color-corporate-accent: #0284c7; /* sky-600 */
+  --color-corporate-panel: #1e293b; /* slate-800 */
+  --color-corporate-border: #334155; /* slate-700 */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-corporate-dark);
+  color: var(--color-corporate-light);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-corporate-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-corporate-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-corporate-accent);
+}
+
+
+/* =========================================================
+   .md-body : estilo de las respuestas del asistente
+   (tema oscuro por defecto; .md-light se usa al exportar PDF)
+   ========================================================= */
+.md-body {
+  --md-text: #dfe3ea;
+  --md-muted: #9aa4b2;
+  --md-head: #f8fafc;
+  --md-accent: #38bdf8;
+  --md-accent-soft: rgba(56, 189, 248, 0.12);
+  --md-accent-text: #7dd3fc;
+  --md-card-bg: #1a1f29;
+  --md-card-border: #2b3341;
+  --md-th-bg: #1e293b;
+  --md-row-alt: rgba(255, 255, 255, 0.025);
+  --md-line: #2b3341;
+  --md-quote-bg: rgba(56, 189, 248, 0.08);
+
+  color: var(--md-text);
+  font-size: 15px;
+  line-height: 1.7;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.md-body.md-light {
+  --md-text: #1e293b;
+  --md-muted: #475569;
+  --md-head: #0f172a;
+  --md-accent: #0284c7;
+  --md-accent-soft: #e0f2fe;
+  --md-accent-text: #075985;
+  --md-card-bg: #f8fafc;
+  --md-card-border: #cbd5e1;
+  --md-th-bg: #e2e8f0;
+  --md-row-alt: #f8fafc;
+  --md-line: #cbd5e1;
+  --md-quote-bg: #f0f9ff;
+}
+
+.md-body > :first-child { margin-top: 0; }
+
+.md-body h1 {
+  color: var(--md-head);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0.25rem 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid var(--md-accent);
+}
+
+.md-body h2 {
+  color: var(--md-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.4rem 0 0.9rem;
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  border-left: 4px solid var(--md-accent);
+}
+
+.md-body h3 {
+  color: var(--md-accent-text);
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 1.1rem 0 0.5rem;
+}
+
+.md-body p { margin: 0 0 0.85rem; }
+
+.md-body strong { color: var(--md-head); font-weight: 700; }
+.md-body em { color: var(--md-muted); }
+
+.md-body a { color: var(--md-accent); text-decoration: underline; }
+
+.md-body hr {
+  border: 0;
+  height: 1px;
+  background: var(--md-line);
+  margin: 1.6rem 0 0;
+}
+/* el título que sigue a una línea divisoria no necesita margen extra */
+.md-body hr + h2 { margin-top: 1rem; }
+
+/* Listas normales (con viñetas y números visibles) */
+.md-body ul { list-style: disc outside; padding-left: 1.5rem; margin: 0 0 1rem; }
+.md-body ol { list-style: decimal outside; padding-left: 1.6rem; margin: 0 0 1rem; }
+.md-body ul ul { list-style: circle outside; margin: 0.3rem 0 0.3rem; }
+.md-body ul ul ul { list-style: square outside; }
+.md-body li { margin: 0.3rem 0; padding-left: 0.2rem; }
+.md-body li::marker { color: var(--md-accent); }
+
+/* Citas / veredicto como tarjeta destacada */
+.md-body blockquote {
+  margin: 0.4rem 0 1rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--md-quote-bg);
+  border: 1px solid var(--md-card-border);
+  border-left: 4px solid var(--md-accent);
+  border-radius: 10px;
+  color: var(--md-text);
+}
+.md-body blockquote p:last-child { margin-bottom: 0; }
+
+/* `etiquetas` => chips */
+.md-body :not(pre) > code {
+  display: inline-block;
+  background: var(--md-accent-soft);
+  color: var(--md-accent-text);
+  border: 1px solid var(--md-card-border);
+  border-radius: 999px;
+  padding: 0.05rem 0.65rem;
+  margin: 0.15rem 0.2rem 0.15rem 0;
+  font-family: inherit;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+/* Si alguna vez llega un bloque de código: que NO se salga de la pantalla */
+.md-body pre {
+  background: var(--md-card-bg);
+  border: 1px solid var(--md-card-border);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin: 0 0 1rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  overflow-x: hidden;
+}
+.md-body pre code {
+  font-family: inherit;
+  background: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Tarjetas pequeñas (listas "**Etiqueta:** dato") */
+.md-body .md-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.65rem;
+  margin: 0 0 1.1rem;
+}
+.md-body .md-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--md-card-bg);
+  border: 1px solid var(--md-card-border);
+  border-radius: 12px;
+  line-height: 1.4;
+  min-width: 0;
+  break-inside: avoid;
+}
+.md-body .md-card-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-accent);
+}
+.md-body .md-card-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--md-head);
+}
+
+/* Tablas: con scroll horizontal propio, nunca desbordan el chat */
+.md-body .md-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0.4rem 0 1.2rem;
+  border: 1px solid var(--md-card-border);
+  border-radius: 12px;
+}
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.md-body th {
+  background: var(--md-th-bg);
+  color: var(--md-head);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid var(--md-accent);
+  white-space: nowrap;
+}
+.md-body td {
+  padding: 0.7rem 0.9rem;
+  vertical-align: top;
+  border-top: 1px solid var(--md-line);
+  min-width: 110px;
+}
+.md-body tbody tr:nth-child(even) { background: var(--md-row-alt); }
+.md-body tbody tr:hover { background: var(--md-accent-soft); }
+.md-body tr { break-inside: avoid; page-break-inside: avoid; }
+
+/* HTML claro inyectado por la IA */
+.md-body div[style*="background-color"] {
+  color: #0f172a !important;
+}

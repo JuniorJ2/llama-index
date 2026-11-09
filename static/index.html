@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis TDR y CV con IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <section id="login-section" class="login-section">
+            <header>
+                <h1>Acceso al Sistema</h1>
+                <p>Por favor, inicia sesión con tus credenciales institucionales.</p>
+            </header>
+            <form id="login-form" class="upload-section">
+                <div class="file-inputs" style="flex-direction: column;">
+                    <div class="file-group" style="width: 100%; margin-bottom: 15px;">
+                        <label for="username">Usuario</label>
+                        <input type="text" id="username" required style="width: 100%; padding: 10px;">
+                    </div>
+                    <div class="file-group" style="width: 100%;">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" required style="width: 100%; padding: 10px;">
+                    </div>
+                </div>
+                <button type="submit" id="login-btn">Entrar</button>
+            </form>
+        </section>
+
+        <!-- Main App Section (Hidden by default) -->
+        <div id="app-container" style="display: none;">
+            <header>
+                <h1>Sistema de Análisis TDR + CV</h1>
+                <p>Auditoría y Comparación automatizada con Gemini y LlamaIndex</p>
+                <div id="user-info" style="margin-top: 10px; font-weight: bold; color: var(--primary-color);"></div>
+                <button id="logout-btn" style="background: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 5px 15px; margin-top: 10px; cursor: pointer;">Cerrar Sesión</button>
+            </header>
+            
+            <main>
+                <section class="upload-section" id="upload-section">
+                <form id="upload-form">
+                    <div class="file-inputs">
+                        <div class="file-group">
+                            <label for="tdr-file">Documento TDR (PDF)</label>
+                            <input type="file" id="tdr-file" accept="application/pdf" required>
+                        </div>
+                        <div class="file-group">
+                            <label for="cv-file">Currículum Vitae (PDF)</label>
+                            <input type="file" id="cv-file" accept="application/pdf" required>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit-btn">Analizar Documentos</button>
+                    <div class="loader" id="upload-loader" style="display: none;"></div>
+                </form>
+            </section>
+            
+            <section class="chat-section" style="display: none;" id="chat-section">
+                <div class="chat-history" id="chat-history">
+                    <!-- Mensajes irán aquí -->
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Haz una pregunta sobre los documentos..." autocomplete="off">
+                    <button id="send-btn">Enviar</button>
+                </div>
+            </section>
+        </main>
+        </div> <!-- End app-container -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
